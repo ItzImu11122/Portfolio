@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-hind-siliguri: 'Hind Siliguri', sans-serif;
+}
+
+/* Dynamic Bangla Font Family Override */
+html[lang="bn"], html[lang="bn"] * {
+  font-family: var(--font-hind-siliguri), 'Hind Siliguri', sans-serif !important;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply transition-colors duration-200 bg-customBg-light text-customText-light dark:bg-customBg-dark dark:text-customText-dark min-h-screen antialiased font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-bold tracking-tight;
+  }
+}
+
+/* Clean Minimalist Cards & Glassmorphism */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .glass-effect {
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+}
+
+/* Glow Card simplified: Flat border hover instead of color glow */
+.glow-card {
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glow-card:hover {
+  @apply border-primary/50 dark:border-secondary/50 shadow-md;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.3);
+}

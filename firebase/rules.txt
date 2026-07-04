@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Firestore rules allowing public read and write access
+    // This allows the standalone admin.html page to edit data directly without needing Firebase Auth.
+    
+    match /apps/{appId} {
+      allow read, write: if true;
+    }
+    
+    match /categories/{categoryId} {
+      allow read, write: if true;
+    }
+    
+    match /testimonials/{testimonialId} {
+      allow read, write: if true;
+    }
+    
+    match /services/{serviceId} {
+      allow read, write: if true;
+    }
+    
+    match /skills/{skillId} {
+      allow read, write: if true;
+    }
+    
+    match /settings/{settingId} {
+      allow read, write: if true;
+    }
+
+    match /messages/{messageId} {
+      allow read, write: if true;
+    }
+
+    match /analytics/{eventId} {
+      allow read, write: if true;
+    }
+  }
+}
